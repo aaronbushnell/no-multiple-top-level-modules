@@ -21,7 +21,7 @@ module.exports = stylelint.createPlugin(ruleName, function (enabled) {
      * ...maybe.
      */
     var path = result.opts.from.split('/');
-    if (path[4] !== 'modules') { return }
+    if (path[path.length - 2] !== 'modules') { return }
 
     root.walkRules(function (statement) {
       if (statement.parent.type === 'root' && _.values(statement.parent.indexes)[0] !== 0) {
